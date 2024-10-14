@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper {
+    position: relative;
+    width: 500px;
+    height: 1000px;
+    background-color: #81002d;
+    overflow: hidden;
+}
+
+.menu_icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.pricetag {
+    position: absolute;
+    left: 0px;
+    top: 15%;
+}
+
+.stripes_container {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    top: 22.5%;
+    left: 22.5%;
+}
+
+.red_stripe {
+    position: absolute;
+    left: 56%;
+    top: 28.5%;
+}
+
+.blue_stripe {
+    position: absolute;
+    left: 56%;
+    top: 66%;
+}
+
+.yellow_stripe {
+    position: absolute;
+    left: 56%;
+    top: 99.5%;
+}
+
+.green_stripe {
+    position: absolute;
+    left: 57%;
+    top: 127%;
+}
+
+.footer {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
