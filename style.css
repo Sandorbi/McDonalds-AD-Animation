@@ -11,6 +11,49 @@
     overflow: hidden;
 }
 
+@keyframes footerfade {
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    from {
+        opacity: 1;
+        top: 30%;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        top: 15%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        top: 25%;
+        transform: scale(0);
+    }
+}
+
+@keyframes stripeslide {
+    from {
+        opacity: 0.5;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .menu_icon {
     position: absolute;
     top: 50%;
@@ -23,6 +66,8 @@
     position: absolute;
     left: 0px;
     top: 15%;
+    opacity: 0;
+    animation: pop 0.5s 0.5s forwards, fadeout 0.5s 2.5s forwards;
 }
 
 .stripes_container {
@@ -37,30 +82,111 @@
     position: absolute;
     left: 56%;
     top: 28.5%;
+    opacity: 0;
+    animation: stripeslide 0.5s 0.8s forwards;
+    transform-origin: left;
+
 }
 
 .blue_stripe {
     position: absolute;
     left: 56%;
     top: 66%;
+    opacity: 0;
+    animation: stripeslide 0.5s 0.9s forwards;
+    transform-origin: left;
 }
 
 .yellow_stripe {
     position: absolute;
     left: 56%;
     top: 99.5%;
+    opacity: 0;
+    animation: stripeslide 0.6s 1s forwards;
+    transform-origin: left;
 }
 
 .green_stripe {
     position: absolute;
     left: 57%;
     top: 127%;
+    opacity: 0;
+    animation: stripeslide 0.6s 1.1s forwards;
+    transform-origin: left;
 }
 
 .footer {
     position: absolute;
+    opacity: 0;
     left: 50%;
     bottom: 10px;
     transform: translateX(-50%);
+    animation: footerfade 1s ease-in forwards;
 }
+
+@keyframes end_text_fade_in {
+    from {
+        right: 60%;
+        top: 20%;
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+}
+
+@keyframes price_fade_in {
+    from {
+        right: 5%;
+        top: 50%;
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes paprika_fade_in {
+    from {
+        opacity: 0;
+        transform: translate(10px, 10px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.end_text {
+    position: absolute;
+    transform: scale(0.5);
+    opacity: 0;
+    right: 59%;
+    top: 12.5%;
+    transform-origin: right;
+    animation: end_text_fade_in 0.5s 2.5s ease-in forwards;
+
+}
+
+.price {
+    position: absolute;
+    opacity: 0;
+    left: 4%;
+    top: 40%;
+    transform-origin: right;
+    animation: price_fade_in 0.5s 2.5s ease-in forwards;
+}
+
+.paprika_text {
+    position: absolute;
+    opacity: 0;
+    bottom: 22%;
+    right: 15%;
+    animation: paprika_fade_in 0.5s 3s ease-in forwards;
+}
+
+
 
