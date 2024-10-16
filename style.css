@@ -312,5 +312,55 @@
     animation: burger_name_fade_in 0.4s 8.5s forwards, disappear 0.1s 10s forwards;
 }
 
+@keyframes end_text_zoom {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.end_big_bang {
+    opacity: 0;
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    transform-origin: right;
+    animation: end_text_zoom 0.3s ease-in 10s forwards;
+}
+
+@keyframes slide_in_from_right {
+    from {
+        left: 500px;
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+        left: 64px;
+    }
+}
+
+@keyframes button_pulse {
+    0% {
+        transform: scale(1); 
+    }
+    50% {
+        transform: scale(0.9); 
+    }
+    100% {
+        transform: scale(1);
+    }   
+}
+
+.button {
+    opacity: 0;
+    position: absolute;
+    left: 64px;
+    bottom: 25%;
+    animation: slide_in_from_right 1s 10s forwards, button_pulse 0.5s 11s 2;
+}
 
 
