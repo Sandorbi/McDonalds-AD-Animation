@@ -1,24 +1,20 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.wrapper {
-    position: relative;
-    width: 500px;
-    height: 1000px;
-    background-color: #81002d;
-    overflow: hidden;
-    animation: change_to_blue 0.5s ease-in-out 4s forwards, change_to_green 0.5s ease-in-out 7s forwards;
-}
 
-@keyframes footerfade {
-
+@keyframes fade_in {
+    from {
+        opacity: 0;
+    }
     to {
         opacity: 1;
     }
 }
 
+@keyframes footerfade {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation for pricetag*/
 @keyframes pop {
     from {
         opacity: 1;
@@ -26,7 +22,7 @@
         transform: scale(0);
     }
     to {
-        opacity: 1;
+        opacity: 1; 
         top: 15%;
         transform: scale(1);
     }
@@ -95,6 +91,7 @@
     }
 }
 
+/* makes stripes slide back invisibly for future animation after slide away animation for transitions */
 @keyframes slide_back_and_hide {
     from {
         transform: translate(1000px, -150px);
@@ -104,86 +101,6 @@
         opacity: 0;
         transform: translate(0,0);
     }
-}
-
-
-.chicken_menu_icon {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    z-index: 1;
-    transform-origin: bottom;
-    animation: pulse_fade_out 0.4s ease-out 4s forwards, disappear 0.4s 5s forwards;
-}
-
-.pricetag {
-    position: absolute;
-    left: 0px;
-    top: 15%;
-    opacity: 0;
-    animation: pop 0.5s 0.5s forwards, fadeout 0.5s 2.5s forwards;
-}
-
-.stripes_container {
-    position: absolute;
-    height: 200px;
-    width: 300px;
-    top: 22.5%;
-    left: 22.5%;
-    animation: slide 1s 4s forwards, slide_back_and_hide 0.1s 4.4s forwards, appear 0.01s 4.6s forwards,
-        slide 1s 7s forwards, slide_back_and_hide 0.1s 7.4s forwards, appear 0.01s 7.6s forwards,
-        slide 1s 10s forwards;
-}
-
-.red_stripe {
-    position: absolute;
-    left: 56%;
-    top: 28.5%;
-    opacity: 0;
-    animation: stripeslide 0.5s 0.8s forwards, stripeslide 0.5s 4.59s forwards,
-        stripeslide 0.5s 7.59s forwards;
-    transform-origin: left;
-
-}
-
-.blue_stripe {
-    position: absolute;
-    left: 56%;
-    top: 66%;
-    opacity: 0;
-    animation: stripeslide 0.5s 0.9s forwards, disappear 0.01s 4.59s forwards, stripeslide 0.5s 4.7s forwards,
-        disappear 0.01s 7.59s forwards, stripeslide 0.5s 7.7s forwards;
-    transform-origin: left;
-}
-
-.yellow_stripe {
-    position: absolute;
-    left: 56%;
-    top: 99.5%;
-    opacity: 0;
-    animation: stripeslide 0.6s 1s forwards, disappear 0.01s 4.59s forwards, stripeslide 0.6s 4.8s forwards,
-        disappear 0.01s 7.59s forwards, stripeslide 0.6s 7.8s forwards;
-    transform-origin: left;
-}
-
-.green_stripe {
-    position: absolute;
-    left: 57%;
-    top: 127%;
-    opacity: 0;
-    animation: stripeslide 0.6s 1.1s forwards, disappear 0.01s 4.59s forwards, stripeslide 0.6s 4.9s forwards,
-        disappear 0.01s 7.59s forwards, stripeslide 0.6s 7.9s forwards;
-    transform-origin: left; 
-}
-
-.footer {
-    position: absolute;
-    opacity: 0;
-    left: 50%;
-    bottom: 10px;
-    transform: translateX(-50%);
-    animation: footerfade 1s ease-in forwards;
 }
 
 @keyframes end_text_fade_in {
@@ -243,7 +160,139 @@
     }
 }
 
+@keyframes end_text_zoom {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
+@keyframes slide_in_from_right {
+    from {
+        left: 500px;
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+        left: 64px;
+    }
+}
+
+@keyframes button_pulse {
+    0% {
+        transform: scale(1); 
+    }
+    50% {
+        transform: scale(0.9); 
+    }
+    100% {
+        transform: scale(1);
+    }   
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    position: relative;
+    width: 500px;
+    height: 1000px;
+    background-color: #81002d;
+    overflow: hidden;
+    animation: change_to_blue 0.5s ease-in-out 4s forwards,
+     change_to_green 0.5s ease-in-out 7s forwards, fade_in 1s forwards;
+}
+
+.chicken_menu_icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+    transform-origin: bottom;
+    animation: pulse_fade_out 0.4s ease-out 4s forwards, disappear 0.4s 5s forwards;
+}
+
+.pricetag {
+    position: absolute;
+    left: 0px;
+    top: 15%;
+    opacity: 0;
+    animation: pop 0.5s 0.5s forwards, fadeout 0.5s 2.5s forwards;
+}
+
+.stripes_container {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    top: 22.5%;
+    left: 22.5%;
+    animation: slide 1s 4s forwards, slide_back_and_hide 0.1s 4.4s forwards,
+        appear 0.01s 4.6s forwards,
+        slide 1s 7s forwards, slide_back_and_hide 0.1s 7.4s forwards,
+        appear 0.01s 7.6s forwards,
+        slide 1s 10s forwards;
+}
+
+.red_stripe {
+    position: absolute;
+    left: 56%;
+    top: 28.5%;
+    opacity: 0;
+    animation: stripeslide 0.5s 0.8s forwards, stripeslide 0.5s 4.59s forwards,
+        stripeslide 0.5s 7.59s forwards;
+    transform-origin: left;
+
+}
+
+.blue_stripe {
+    position: absolute;
+    left: 56%;
+    top: 66%;
+    opacity: 0;
+    animation: stripeslide 0.5s 0.9s forwards, disappear 0.01s 4.59s forwards, 
+        stripeslide 0.5s 4.7s forwards,
+        disappear 0.01s 7.59s forwards, stripeslide 0.5s 7.7s forwards;
+    transform-origin: left;
+}
+
+.yellow_stripe {
+    position: absolute;
+    left: 56%;
+    top: 99.5%;
+    opacity: 0;
+    animation: stripeslide 0.6s 1s forwards, disappear 0.01s 4.59s forwards, 
+        stripeslide 0.6s 4.8s forwards,
+        disappear 0.01s 7.59s forwards, stripeslide 0.6s 7.8s forwards;
+    transform-origin: left;
+}
+
+.green_stripe {
+    position: absolute;
+    left: 57%;
+    top: 127%;
+    opacity: 0;
+    animation: stripeslide 0.6s 1.1s forwards, disappear 0.01s 4.59s forwards, 
+        stripeslide 0.6s 4.9s forwards,
+        disappear 0.01s 7.59s forwards, stripeslide 0.6s 7.9s forwards;
+    transform-origin: left; 
+}
+
+.footer {
+    position: absolute;
+    opacity: 0;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    animation: footerfade 1s ease-in forwards;
+}
 
 .end_text {
     position: absolute;
@@ -252,7 +301,8 @@
     right: 59%;
     top: 12.5%;
     transform-origin: right;
-    animation: end_text_fade_in 0.5s 2.5s ease-in forwards, pulse 0.5s 4.0s, pulse 0.5s 7.0s, fade 0.5s 10s forwards;
+    animation: end_text_fade_in 0.5s 2.5s ease-in forwards, pulse 0.5s 4.0s,
+        pulse 0.5s 7.0s,fade 0.5s 10s forwards;
     
 }
 
@@ -281,9 +331,9 @@
     transform: translateY(-50%);
     z-index: 1;
     transform-origin: bottom;
-    animation: appear 1s 4s forwards, pulse_fade_out 0.4s ease-out 7s forwards, disappear 0.4s 8s forwards;
+    animation: appear 1s 4s forwards, pulse_fade_out 0.4s ease-out 7s forwards,
+        disappear 0.4s 8s forwards;
 }
-
 
 .double_cheese_text {
     position: absolute;
@@ -301,7 +351,8 @@
     transform: translateY(-50%);
     z-index: 1;
     transform-origin: bottom;
-    animation: appear 1s 7s forwards, pulse_fade_out 0.4s ease-out 10s forwards, disappear 0.4s 11s forwards;
+    animation: appear 1s 7s forwards, pulse_fade_out 0.4s ease-out 10s forwards, 
+        disappear 0.4s 11s forwards;
 }
 
 .fish_burger_text {
@@ -312,17 +363,6 @@
     animation: burger_name_fade_in 0.4s 8.5s forwards, disappear 0.1s 10s forwards;
 }
 
-@keyframes end_text_zoom {
-    from {
-        transform: scale(0);
-        opacity: 1;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
 .end_big_bang {
     opacity: 0;
     position: absolute;
@@ -330,29 +370,6 @@
     top: 15%;
     transform-origin: right;
     animation: end_text_zoom 0.3s ease-in 10s forwards;
-}
-
-@keyframes slide_in_from_right {
-    from {
-        left: 500px;
-        opacity: 1;
-    }
-    to {
-        opacity: 1;
-        left: 64px;
-    }
-}
-
-@keyframes button_pulse {
-    0% {
-        transform: scale(1); 
-    }
-    50% {
-        transform: scale(0.9); 
-    }
-    100% {
-        transform: scale(1);
-    }   
 }
 
 .button {
