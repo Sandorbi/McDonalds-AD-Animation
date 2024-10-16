@@ -9,6 +9,7 @@
     height: 1000px;
     background-color: #81002d;
     overflow: hidden;
+    animation: change_to_blue 0.5s ease-in-out 4s forwards;
 }
 
 @keyframes footerfade {
@@ -54,12 +55,60 @@
     }
 }
 
-.menu_icon {
+@keyframes pulse_fade_out {
+    from{
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.2) translateY(-150px);
+        opacity: 0;
+    }
+}
+
+@keyframes change_to_blue {
+    to {
+        background-color: #102952;   
+    }
+}
+
+@keyframes disappear {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide {
+    to {
+        transform: translate(1000px, -150px);
+    }
+}
+
+@keyframes slide_back_and_hide {
+    from {
+        transform: translate(1000px, -150px);
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+        transform: translate(0,0);
+    }
+}
+
+
+.chicken_menu_icon {
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
     z-index: 1;
+    transform-origin: bottom;
+    animation: pulse_fade_out 0.4s ease-out 4s forwards, disappear 0.4s 5s forwards;
 }
 
 .pricetag {
@@ -76,6 +125,7 @@
     width: 300px;
     top: 22.5%;
     left: 22.5%;
+    animation: slide 1s 4s forwards, slide_back_and_hide 0.1s 4.4s forwards, appear 0.01s 4.6s forwards;
 }
 
 .red_stripe {
@@ -83,7 +133,7 @@
     left: 56%;
     top: 28.5%;
     opacity: 0;
-    animation: stripeslide 0.5s 0.8s forwards;
+    animation: stripeslide 0.5s 0.8s forwards, stripeslide 0.5s 4.59s forwards;
     transform-origin: left;
 
 }
@@ -93,7 +143,7 @@
     left: 56%;
     top: 66%;
     opacity: 0;
-    animation: stripeslide 0.5s 0.9s forwards;
+    animation: stripeslide 0.5s 0.9s forwards, disappear 0.01s 4.59s forwards, stripeslide 0.5s 4.7s forwards;
     transform-origin: left;
 }
 
@@ -102,7 +152,7 @@
     left: 56%;
     top: 99.5%;
     opacity: 0;
-    animation: stripeslide 0.6s 1s forwards;
+    animation: stripeslide 0.6s 1s forwards, disappear 0.01s 4.59s forwards, stripeslide 0.6s 4.8s forwards;
     transform-origin: left;
 }
 
@@ -111,8 +161,8 @@
     left: 57%;
     top: 127%;
     opacity: 0;
-    animation: stripeslide 0.6s 1.1s forwards;
-    transform-origin: left;
+    animation: stripeslide 0.6s 1.1s forwards, disappear 0.01s 4.59s forwards, stripeslide 0.6s 4.9s forwards;
+    transform-origin: left; 
 }
 
 .footer {
@@ -150,13 +200,25 @@
     }
 }
 
-@keyframes paprika_fade_in {
+@keyframes burger_name_fade_in {
     from {
         opacity: 0;
         transform: translate(10px, 10px);
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+    }
+    50% {
+        transform: scale(0.6);
+    }
+    100% {
+        transform: scale(0.5);
     }
 }
 
@@ -167,8 +229,8 @@
     right: 59%;
     top: 12.5%;
     transform-origin: right;
-    animation: end_text_fade_in 0.5s 2.5s ease-in forwards;
-
+    animation: end_text_fade_in 0.5s 2.5s ease-in forwards, pulse 0.5s 4.0s;
+    
 }
 
 .price {
@@ -185,7 +247,27 @@
     opacity: 0;
     bottom: 22%;
     right: 15%;
-    animation: paprika_fade_in 0.5s 3s ease-in forwards;
+    animation: burger_name_fade_in 0.4s 3s forwards, disappear 0.1s 4s forwards;
+}
+
+.double_cheese_menu {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+    transform-origin: bottom;
+    animation: appear 1s 4s forwards;
+}
+
+
+.double_cheese_text {
+    position: absolute;
+    opacity: 0;
+    bottom: 21%;
+    right: 6%;
+    animation: burger_name_fade_in 0.4s 5.5s forwards;
 }
 
 
